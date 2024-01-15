@@ -1,18 +1,18 @@
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC 	= megaphone
+SRC 	= main Zombie zombieHorde
 SRCS	= $(addsuffix .cpp, $(SRC))
 OBJS_DIR= ./objs/
 OBJS	= $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
-NAME	= megaphone
+NAME	= Zombie
 
 all		: $(NAME)
 
 $(NAME)	: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-$(OBJS)	: $(SRCS) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DIR)%.o: %.cpp | $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
@@ -26,5 +26,4 @@ fclean	: clean
 re		: 
 	make fclean
 	make all
-
 .PHONY	: all clean fclean re
