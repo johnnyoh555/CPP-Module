@@ -94,7 +94,7 @@ void	Account::_displayTimestamp( void ) {
 	std::cout << buf << ' ';
 }
 
-Account::Account( void ) {
+Account::Account(void) {
 	_amount = 0;
 	_totalAmount += _amount;
 	_accountIndex = _nbAccounts;
