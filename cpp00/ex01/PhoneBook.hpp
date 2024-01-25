@@ -12,7 +12,7 @@ class PhoneBook{
 	private:
 		static const int	MAX_INDEX = 8;
 		
-		Contact	Contact[MAX_INDEX];
+		Contact	contact[MAX_INDEX];
 		int 	idx;
 		int 	cnt;
 

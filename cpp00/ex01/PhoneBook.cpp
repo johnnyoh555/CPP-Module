@@ -6,7 +6,7 @@
 /*   By: jooh <jooh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:32:35 by jooh              #+#    #+#             */
-/*   Updated: 2024/01/25 14:43:24 by jooh             ###   ########.fr       */
+/*   Updated: 2024/01/25 15:03:30 by jooh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	PhoneBook::ft_add() {
 		if (!temp.empty())
 			break ;
 	}
-	Contact[idx].set_firstname(temp);
+	contact[idx].set_firstname(temp);
 	
 	while (1)
 	{
@@ -51,7 +51,7 @@ void	PhoneBook::ft_add() {
 		if (!temp.empty())
 			break ;
 	}
-	Contact[idx].set_lastname(temp);
+	contact[idx].set_lastname(temp);
 	
 	while (1)
 	{
@@ -68,7 +68,7 @@ void	PhoneBook::ft_add() {
 		if (!temp.empty())
 			break ;
 	}
-	Contact[idx].set_nickname(temp);
+	contact[idx].set_nickname(temp);
 	
 	while (1)
 	{
@@ -85,7 +85,7 @@ void	PhoneBook::ft_add() {
 		if (!temp.empty())
 			break ;
 	}
-	Contact[idx].set_phonenumber(temp);
+	contact[idx].set_phonenumber(temp);
 	
 	while (1)
 	{
@@ -102,7 +102,7 @@ void	PhoneBook::ft_add() {
 		if (!temp.empty())
 			break ;
 	}
-	Contact[idx].set_darkestsecret(temp);
+	contact[idx].set_darkestsecret(temp);
 	
 	idx = (idx + 1) % MAX_INDEX;
 	if (cnt < MAX_INDEX)
@@ -149,7 +149,7 @@ void	PhoneBook::ft_search() {
 void	PhoneBook::ft_search(int idx) {
 	if (idx >= cnt)
 		return ;
-	Contact[idx].print_info();
+	contact[idx].print_info();
 }
 
 void	PhoneBook::print_Contact(int i) {
@@ -160,11 +160,11 @@ void	PhoneBook::print_Contact(int i) {
 	else
 		std::cout << i % 8 << "|" << std::flush;
 	std::cout << std::setw(10);
-	std::cout << cut_info(Contact[i].get_firstname()) << "|" << std::flush;
+	std::cout << cut_info(contact[i].get_firstname()) << "|" << std::flush;
 	std::cout << std::setw(10);
-	std::cout << cut_info(Contact[i].get_lastname())<< "|" << std::flush;
+	std::cout << cut_info(contact[i].get_lastname())<< "|" << std::flush;
 	std::cout << std::setw(10);
-	std::cout << cut_info(Contact[i].get_nickname())<< std::endl;
+	std::cout << cut_info(contact[i].get_nickname())<< std::endl;
 }
 
 const	std::string& PhoneBook::cut_info(const std::string& str) {
