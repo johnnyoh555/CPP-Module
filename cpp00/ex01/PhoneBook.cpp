@@ -6,11 +6,12 @@
 /*   By: jooh <jooh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:32:35 by jooh              #+#    #+#             */
-/*   Updated: 2024/01/25 15:03:30 by jooh             ###   ########.fr       */
+/*   Updated: 2024/01/25 15:07:12 by jooh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 
 PhoneBook::PhoneBook() : idx(0), cnt(0) {}
 
