@@ -6,7 +6,7 @@
 /*   By: jooh <jooh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:32:35 by jooh              #+#    #+#             */
-/*   Updated: 2024/01/13 17:27:05 by jooh             ###   ########.fr       */
+/*   Updated: 2024/01/25 14:43:24 by jooh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void	PhoneBook::ft_add() {
 }
 
 void	PhoneBook::ft_search() {
-	int	idx;
+	std::string str;
+	int			tmp;
 	
 	std::cout << "-------------------------------------------" << std::endl;
 	if (cnt == 0)
@@ -126,7 +127,7 @@ void	PhoneBook::ft_search() {
 			print_Contact((idx + i) % 8);
 	}
 	std::cout << "\n" << "index want to find: " << std::flush;
-	std::cin >> idx;
+	std::getline(std::cin, str);
 	if (std::cin.fail())
 	{
 		std::cin.clear();
@@ -134,12 +135,20 @@ void	PhoneBook::ft_search() {
 		std::cout << std::endl;
 		return ;
 	}
-	if (idx < 0 || idx >= cnt)
+	if (is_digit(str))
+		return;
+	tmp = atoi(str.c_str());
+	if (tmp < 0 || tmp >= cnt)
 		return ;
-	ft_search(idx);
+	if (cnt < MAX_INDEX)
+		ft_search(tmp);
+	else
+		ft_search((idx + tmp) % 8);
 }
 
 void	PhoneBook::ft_search(int idx) {
+	if (idx >= cnt)
+		return ;
 	Contact[idx].print_info();
 }
 
@@ -159,19 +168,19 @@ void	PhoneBook::print_Contact(int i) {
 }
 
 const	std::string& PhoneBook::cut_info(const std::string& str) {
-	if (str.length() > 10)
+	if (str.size() > 10)
 		return str.substr(0,10).replace(9, 1, ".");
 	return str;
 }
 
 int		PhoneBook::is_printalbe(std::string& str) const {
-	for (int i = 0; i < str.length(); i++)
+	for (int i = 0; i < (int)str.size(); i++)
 		if (!std::isprint(str[i]))
 			return (1);
 	return (0);
 }
 int		PhoneBook::is_digit(std::string& str) const {
-	for (int i = 0; i < str.length(); i++)
+	for (int i = 0; i < (int)str.size(); i++)
 		if (!std::isdigit(str[i]))
 			return (1);
 	return (0);

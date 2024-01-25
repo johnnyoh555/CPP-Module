@@ -11,8 +11,8 @@ all		: $(NAME)
 $(NAME)	: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-$(OBJS)	: $(SRCS) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DIR)%.o: %.cpp | $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
