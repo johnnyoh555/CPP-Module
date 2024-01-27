@@ -6,7 +6,7 @@
 /*   By: jooh <jooh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:32:35 by jooh              #+#    #+#             */
-/*   Updated: 2024/01/25 15:07:12 by jooh             ###   ########.fr       */
+/*   Updated: 2024/01/27 15:25:55 by jooh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,16 +117,8 @@ void	PhoneBook::ft_search() {
 	std::cout << "-------------------------------------------" << std::endl;
 	if (cnt == 0)
 		return ;
-	if (cnt != MAX_INDEX)
-	{
-		for (int i = 0; i < cnt; i++)
-			print_Contact(i);
-	}
-	else
-	{
-		for (int i = 0; i < MAX_INDEX; i++)
-			print_Contact((idx + i) % 8);
-	}
+	for (int i = 0; i < cnt; i++)
+		print_Contact(i);
 	std::cout << "\n" << "index want to find: " << std::flush;
 	std::getline(std::cin, str);
 	if (std::cin.fail())
@@ -141,10 +133,7 @@ void	PhoneBook::ft_search() {
 	tmp = atoi(str.c_str());
 	if (tmp < 0 || tmp >= cnt)
 		return ;
-	if (cnt < MAX_INDEX)
-		ft_search(tmp);
-	else
-		ft_search((idx + tmp) % 8);
+	ft_search(tmp);
 }
 
 void	PhoneBook::ft_search(int idx) {
@@ -156,10 +145,7 @@ void	PhoneBook::ft_search(int idx) {
 void	PhoneBook::print_Contact(int i) {
 	std::cout << std::setw(10);
 	
-	if (cnt == MAX_INDEX)
-		std::cout << (i - idx + 8) % 8 << "|" << std::flush;
-	else
-		std::cout << i % 8 << "|" << std::flush;
+	std::cout << i % 8 << "|" << std::flush;
 	std::cout << std::setw(10);
 	std::cout << cut_info(contact[i].get_firstname()) << "|" << std::flush;
 	std::cout << std::setw(10);
@@ -168,7 +154,7 @@ void	PhoneBook::print_Contact(int i) {
 	std::cout << cut_info(contact[i].get_nickname())<< std::endl;
 }
 
-const	std::string& PhoneBook::cut_info(const std::string& str) {
+const	std::string PhoneBook::cut_info(const std::string str) {
 	if (str.size() > 10)
 		return str.substr(0,10).replace(9, 1, ".");
 	return str;

@@ -19,7 +19,7 @@ class PhoneBook{
 		int		is_printalbe(std::string& str) const;
 		int		is_digit(std::string& str) const;
 
-		const	std::string& cut_info(const std::string& str);
+		const	std::string cut_info(const std::string str);
 
 	public:
 		PhoneBook();
