@@ -32,12 +32,12 @@ int	main(int ac, char *av[]) {
 		std::cerr << "파일을 찾을 수 없습니다." << std::endl;
 		return 1;
 	}
-
-	std::string::size_type n;
-	while (str.find(av[2]) != std::string::npos) {
-		n = str.find(av[2]);
+	std::string::size_type n = 0;
+	while (n < str.size() && strlen(av[2]) && str.find(av[2], n) != std::string::npos) {
+		n = str.find(av[2], n);
 		str.erase(n, strlen(av[2]));
 		str.insert(n, av[3]);
+		n += strlen(av[3]);
 	}
 	
 	std::string		outfile_name;
