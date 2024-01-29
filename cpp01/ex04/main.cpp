@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iterator>
 #include <sstream>
+#include <cstring>
 
 int	main(int ac, char *av[]) {
 	if (ac != 4) {
@@ -44,7 +45,7 @@ int	main(int ac, char *av[]) {
 	outfile_name = av[1];
 	outfile_name += ".replace";
 
-	std::ofstream	outfile(outfile_name);
+	std::ofstream	outfile(outfile_name.c_str());
 	if (outfile.is_open())
 		outfile << str;
 
