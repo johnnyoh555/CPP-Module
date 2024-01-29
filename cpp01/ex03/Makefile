@@ -1,5 +1,4 @@
-CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 SRC 	= main HumanA HumanB Weapon
 SRCS	= $(addsuffix .cpp, $(SRC))
 OBJS_DIR= ./objs/
@@ -9,10 +8,10 @@ NAME	= War
 all		: $(NAME)
 
 $(NAME)	: $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJS_DIR)%.o: %.cpp | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
