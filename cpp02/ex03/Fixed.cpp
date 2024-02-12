@@ -63,22 +63,22 @@ bool	Fixed::operator!= (const Fixed &fixed) const {
 	return this->fixed_point != fixed.fixed_point;
 }
 
-Fixed Fixed::operator+ (const Fixed &fixed) {
+Fixed Fixed::operator+ (const Fixed &fixed) const {
 	Fixed ret(this->toFloat() + fixed.toFloat());
 	return ret;
 }
 
-Fixed Fixed::operator- (const Fixed &fixed) {
+Fixed Fixed::operator- (const Fixed &fixed) const {
 	Fixed ret(this->toFloat() - fixed.toFloat());
 	return ret;
 }
 
-Fixed Fixed::operator* (const Fixed &fixed) {
+Fixed Fixed::operator* (const Fixed &fixed) const {
 	Fixed ret(this->toFloat() * fixed.toFloat());
 	return ret;
 }
 
-Fixed Fixed::operator/ (const Fixed &fixed) {
+Fixed Fixed::operator/ (const Fixed &fixed) const {
 	Fixed ret(this->toFloat() / fixed.toFloat());
 	return ret;
 }
@@ -107,25 +107,25 @@ const Fixed	Fixed::operator-- (int) {
 	return tmp;
 }
 
-Fixed	Fixed::min(Fixed &a, Fixed &b) {
+Fixed&	Fixed::min(Fixed &a, Fixed &b) {
 	if (a.toFloat() > b.toFloat())
 		return b;
 	return a;
 }
 
-Fixed	Fixed::min(const Fixed &a, const Fixed &b) {
+const Fixed&	Fixed::min(const Fixed &a, const Fixed &b) {
 	if (a.toFloat() > b.toFloat())
 		return b;
 	return a;
 }
 
-Fixed	Fixed::max(Fixed &a, Fixed &b) {
+Fixed&	Fixed::max(Fixed &a, Fixed &b) {
 	if (a.toFloat() > b.toFloat())
 		return a;
 	return b;
 }
 
-Fixed	Fixed::max(const Fixed &a, const Fixed &b) {
+const Fixed&	Fixed::max(const Fixed &a, const Fixed &b) {
 	if (a.toFloat() > b.toFloat())
 		return a;
 	return b;
