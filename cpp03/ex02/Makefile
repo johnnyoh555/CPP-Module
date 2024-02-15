@@ -1,6 +1,6 @@
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC 	= main ClapTrap ScavTrap FragTrap DiamondTrap
+SRC 	= main ClapTrap ScavTrap FragTrap
 SRCS	= $(addsuffix .cpp, $(SRC))
 OBJS_DIR= ./objs/
 OBJS	= $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
