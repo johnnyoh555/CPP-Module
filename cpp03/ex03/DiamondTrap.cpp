@@ -14,6 +14,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &ref) : ClapTrap(ref), FragTrap(ref),
 
 DiamondTrap& DiamondTrap::operator= (const DiamondTrap &ref) {
 	ClapTrap::operator=(ref);
+	this->name = ref.name;
 	return *this;
 }
 
