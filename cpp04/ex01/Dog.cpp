@@ -17,9 +17,11 @@ Dog::Dog(const Dog &ref) : Animal(ref) {
 }
 
 Dog& Dog::operator= (const Dog &ref) {
-	type = ref.type;
-	delete brain;
-	brain = new Brain(*ref.brain);
+	if (this != &ref) {
+		type = ref.type;
+		delete brain;
+		brain = new Brain(*ref.brain);
+	}
 	return *this;
 }
 

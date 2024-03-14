@@ -8,8 +8,7 @@ Ice::~Ice() {}
 Ice::Ice(const Ice& ref) : AMateria(ref) {}
 
 Ice& Ice::operator= (const Ice &ref) {
-	if (this != &ref)
-		type = ref.type;
+	if (this != &ref) type = ref.type;
 	return *this;
 }
 

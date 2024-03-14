@@ -17,9 +17,11 @@ Cat::Cat(const Cat &ref) : Animal(ref) {
 }
 
 Cat& Cat::operator= (const Cat &ref) {
-	type = ref.type;
-	delete brain;
-	brain = new Brain(*ref.brain);
+	if (this != &ref) {
+		type = ref.type;
+		delete brain;
+		brain = new Brain(*ref.brain);
+	}
 	return *this;
 }
 

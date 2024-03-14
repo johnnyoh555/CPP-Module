@@ -16,6 +16,7 @@ int main()
 	}
 
 	meta[0]->makeSound();
+	meta[1]->makeSound();
 
 	for (int i = 0 ; i < 10; i++) {
 		delete meta[i];
@@ -30,6 +31,5 @@ int main()
 		std::cout << d2.getBrainIdea(i * 5) << '\n';
 	}
 	delete d;
-
 	return 0;
 }

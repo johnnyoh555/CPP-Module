@@ -28,6 +28,5 @@ int main()
 		std::cout << d2.getBrainIdea(i * 5) << '\n';
 	}
 	delete d;
-
 	return 0;
 }

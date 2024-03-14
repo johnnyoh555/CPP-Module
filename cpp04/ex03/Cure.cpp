@@ -8,8 +8,7 @@ Cure::~Cure() {}
 Cure::Cure(const Cure& ref) : AMateria(ref) {}
 
 Cure& Cure::operator= (const Cure &ref) {
-	if (this != &ref)
-		type = ref.type;
+	if (this != &ref) type = ref.type;
 	return *this;
 }
 

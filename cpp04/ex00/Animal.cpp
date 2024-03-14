@@ -7,7 +7,7 @@ Animal::~Animal() {std::cout << "Animal Destructor called" << std::endl;}
 Animal::Animal(const Animal &ref) : type(ref.type) {std::cout << "Animal Copy constructor called" << std::endl;}
 
 Animal& Animal::operator= (const Animal &ref) {
-	type = ref.type;
+	if (this != &ref) type = ref.type;
 	return *this;
 }
 

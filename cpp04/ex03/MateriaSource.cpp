@@ -14,21 +14,22 @@ MateriaSource::MateriaSource(const MateriaSource& rhs) {
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
-	for (int i = 0; i < 4; i++) {
-		if (materia[i] != 0) {
-			delete materia[i];
-			materia[i] = 0;
+	if (this != &rhs) {
+		for (int i = 0; i < 4; i++) {
+			if (materia[i] != 0) {
+				delete materia[i];
+				materia[i] = 0;
+			}
+			if (rhs.materia[i] != 0)
+				materia[i] = rhs.materia[i]->clone();
 		}
-		if (rhs.materia[i] != 0)
-			materia[i] = rhs.materia[i]->clone();
 	}
 	return *this;
 }
 
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++) {
-		if (materia[i])
-			delete materia[i];
+		if (materia[i]) delete materia[i];
 	}
 }
 

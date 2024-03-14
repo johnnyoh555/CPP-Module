@@ -18,8 +18,8 @@ Brain::Brain(const Brain &ref) {
 }
 
 Brain& Brain::operator= (const Brain &ref) {
-	for (int i = 0; i < 100; i++) {
-		ideas[i] = ref.ideas[i];
+	if (this != &ref) {
+		for (int i = 0; i < 100; i++) ideas[i] = ref.ideas[i];
 	}
 	return *this;
 }
