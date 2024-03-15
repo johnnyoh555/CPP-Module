@@ -4,7 +4,9 @@ Brain::Brain() {
 	std::cout << "Brain Default constructor called" << std::endl;
 	for (int i = 0; i < 100; i++) {
 		ideas[i] = "None idea";
-		ideas[i] += std::to_string(i);
+		std::stringstream ss;
+		ss << i;
+		ideas[i] += ss.str();
 	}
 }
 
