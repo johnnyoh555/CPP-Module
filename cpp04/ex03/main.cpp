@@ -16,9 +16,9 @@ int main(void)
 	AMateria* tmp;
 	ICharacter* bob = new Character("bob");
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	if (tmp) me->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	if (tmp) me->equip(tmp);
 
 
 	me->use(0, *bob);
@@ -26,11 +26,11 @@ int main(void)
 
 	Character* jooh = new Character("jooh");
 	tmp = src->createMateria("ice");
-	jooh->equip(tmp);
+	if (tmp) jooh->equip(tmp);
 	tmp = src->createMateria("cure");
-	jooh->equip(tmp);
+	if (tmp) jooh->equip(tmp);
 	tmp = src->createMateria("ice");
-	jooh->equip(tmp);
+	if (tmp) jooh->equip(tmp);
 	jooh->save_unequip(1, floor);
 	jooh->use(0, *bob);
 	jooh->use(1, *bob);
@@ -45,6 +45,6 @@ int main(void)
 	delete bob;
 	delete me;
 	delete src;
-	
+
 	return 0;
 }
