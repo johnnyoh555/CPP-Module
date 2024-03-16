@@ -23,6 +23,8 @@ Character::Character(const Character& ref) {
 		for (int i = 0; i < 4; i++) {
 			if (ref.inventory[i] != 0)
 				inventory[i] = ref.inventory[i]->clone();
+			else
+				inventory[i] = 0;
 		}
 	}
 }
@@ -78,6 +80,10 @@ void	Character::save_unequip(int idx, AMateria* floor[]) {
 		if (floor[i] == 0) {
 			floor[i] = inventory[idx];
 			break ;
+		}
+		if (i == 499999) {
+			std::cout << "There is no more space on the floor\n";
+			return;
 		}
 	}
 	unequip(idx);

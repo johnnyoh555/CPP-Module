@@ -10,6 +10,8 @@ MateriaSource::MateriaSource(const MateriaSource& rhs) {
 	for (int i = 0; i < 4; i++) {
 		if (rhs.materia[i] != 0)
 			materia[i] = rhs.materia[i]->clone();
+		else
+			materia[i] = 0;
 	}
 }
 
@@ -44,7 +46,7 @@ void	MateriaSource::learnMateria(AMateria *rhs) {
 
 AMateria*	MateriaSource::createMateria(std::string const& type) {
 	for (int i = 0; i < 4; i++) {
-		if (materia[i]->getType() == type)
+		if (materia[i] && materia[i]->getType() == type)
 			return materia[i]->clone();
 	}
 	return 0;

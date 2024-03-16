@@ -13,7 +13,7 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog &ref) : Animal(ref) {
 	std::cout << "Dog Copy constructor called" << std::endl;
-	brain = new Brain;
+	brain = new Brain(*ref.brain);
 }
 
 Dog& Dog::operator= (const Dog &ref) {

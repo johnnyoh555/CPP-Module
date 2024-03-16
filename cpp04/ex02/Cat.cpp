@@ -13,7 +13,7 @@ Cat::~Cat() {
 
 Cat::Cat(const Cat &ref) : Animal(ref) {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	brain = new Brain;
+	brain = new Brain(*ref.brain);
 }
 
 Cat& Cat::operator= (const Cat &ref) {
