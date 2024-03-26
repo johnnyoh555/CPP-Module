@@ -2,7 +2,9 @@
 #define BITCOINEXCHANGE_HPP
 
 # include <map>
+# include <iostream>
 # include <exception>
+# include <string>
 
 class BitcoinExchange {
 	public:
@@ -19,7 +21,7 @@ class BitcoinExchange {
 			public:
 				FailToOpenData();
 		};
-
+		
 		class FailToOpenInfile : public std::runtime_error {
 			public:
 				FailToOpenInfile();

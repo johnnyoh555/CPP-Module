@@ -66,7 +66,7 @@ bool	BitcoinExchange::checkDay(long year, long month, long day) {
 }
 
 void	BitcoinExchange::parseInfile(std::string infile) {
-	std::ifstream	file(infile);
+	std::ifstream	file(infile.c_str());
 	std::string str;
 
 	if (!file) throw FailToOpenInfile();
