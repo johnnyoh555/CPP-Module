@@ -1,9 +1,9 @@
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98
-SRC 	= main RPN
+SRC 	= main BitcoinExchange
 SRCS	= $(addsuffix .cpp, $(SRC))
 OBJS_DIR= ./objs/
 OBJS	= $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
-NAME	= RPN
+NAME	= btc
 
 all		: $(NAME)
 

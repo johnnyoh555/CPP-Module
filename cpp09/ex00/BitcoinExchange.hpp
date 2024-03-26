@@ -11,8 +11,19 @@ class BitcoinExchange {
 		void	makeData();
 		void	parseInfile(std::string infile);
 		void	checkData(std::string data);
+		void	checkInfile(std::string infile);
 		bool	checkDayInfo(std::string day);
 		bool	checkDay(long year, long month, long day);
+
+		class FailToOpenData : public std::runtime_error {
+			public:
+				FailToOpenData();
+		};
+
+		class FailToOpenInfile : public std::runtime_error {
+			public:
+				FailToOpenInfile();
+		};
 
 	private:
 		std::map<std::string, double> data;
