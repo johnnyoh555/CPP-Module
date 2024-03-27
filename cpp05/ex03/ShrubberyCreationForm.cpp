@@ -22,7 +22,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& execute) const {
 		throw NotSignedException();
 	if (execute.getGrade() <= getGradeToExecute()) {
 		std::string	tmp = getTarget() + "_shrubbery";
-		std::ofstream out(tmp);
+		std::ofstream out(tmp.c_str());
 
 		if (out.is_open()) {
 			out << "        +       \n";
