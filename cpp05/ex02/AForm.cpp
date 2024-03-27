@@ -10,7 +10,7 @@ AForm& AForm::operator= (const AForm& rhs) {
 AForm::AForm(const std::string name, const int sign, const int execute) : name(name), sign(false), grade_to_sign(sign), grade_to_execute(execute) {
 	if (sign < Highest_Rank || execute < Highest_Rank)
 		throw GradeTooHighException();
-	if (sign < Highest_Rank || execute < Highest_Rank)
+	if (sign > Lowest_Rank || execute > Lowest_Rank)
 		throw GradeTooLowException();
 }
 

@@ -10,7 +10,7 @@ Form& Form::operator= (const Form& rhs) {
 Form::Form(const std::string name, const int sign, const int execute) : name(name), sign(false), grade_to_sign(sign), grade_to_execute(execute) {
 	if (sign < Highest_Rank || execute < Highest_Rank)
 		throw GradeTooHighException();
-	if (sign < Highest_Rank || execute < Highest_Rank)
+	if (sign > Lowest_Rank || execute > Lowest_Rank)
 		throw GradeTooLowException();
 }
 
@@ -33,7 +33,7 @@ void	Form::beSigned(const Bureaucrat& rhs) {
 		throw GradeTooLowException();
 }
 
-Form::GradeTooHighException::GradeTooHighException() : logic_error("Grade is too high") {}
+Form::GradeTooHighException::GradeTooHighException() : logic_error("Grade is too High") {}
 
 Form::GradeTooLowException::GradeTooLowException() : logic_error("Grade is too Low") {}
 
