@@ -93,7 +93,7 @@ static void convert_by_float(const std::string& rhs) {
       f < std::numeric_limits<int>::min() || f != std::floor(f))
     std::cout << "int: impossible\n";
   else {
-    i = static_cast<char>(f);
+    i = static_cast<int>(f);
     std::cout << "int: " << i << '\n';
   }
   if (f != std::floor(f))
