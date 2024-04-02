@@ -18,15 +18,13 @@ class Array {
 
 		Array() : arr(0), arrlen(0) {}
 
-		Array(unsigned int n) : arr(0), arrlen(0) {
-			if (n) {
-				arr = new T[n];
-				arrlen = n;
-			}
+		Array(unsigned int n) {
+			arr = new T[n];
+			arrlen = n;
 		}
 
 		~Array() {
-			if (arrlen) delete[] arr;
+			delete[] arr;
 		}
 
 		Array(const Array& rhs) {
