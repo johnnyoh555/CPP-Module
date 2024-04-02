@@ -18,13 +18,15 @@ class Array {
 
 		Array() : arr(0), arrlen(0) {}
 
-		Array(unsigned int n) {
-			arr = new T[n];
-			arrlen = n;
+		Array(unsigned int n) : arr(0), arrlen(0) {
+			if (n) {
+				arr = new T[n];
+				arrlen = n;
+			}
 		}
 
 		~Array() {
-			delete[] arr;
+			if (arrlen) delete[] arr;
 		}
 
 		Array(const Array& rhs) {
@@ -37,6 +39,7 @@ class Array {
 
 		Array&	operator=(const Array& rhs) {
 			if (this != &rhs) {
+				delete[] arr;
 				arr = new T[rhs.arrlen];
 				arrlen = rhs.arrlen;
 				for (unsigned int i = 0; i < rhs.arrlen; i++) {
