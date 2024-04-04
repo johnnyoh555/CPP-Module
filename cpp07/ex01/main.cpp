@@ -1,13 +1,13 @@
 #include "iter.hpp"
 
-char uppercase(char c) {
+void uppercase(char c) {
 	if (c >= 'a' && c <= 'z')
-		return c + ('A' - 'a');
-	return c;
+		c = c + ('A' - 'a');
+	std::cout << c;
 }
 
-int	plusone(int i) {
-	return i + 1;
+void	plusone(int i) {
+	std::cout << i + 1;
 }
 
 int main(void) {
@@ -15,15 +15,7 @@ int main(void) {
 	char str[6] = {"Hello"};
 
 	::iter(arr, 10, plusone);
+	std::cout << '\n';
 	::iter(str, 6, uppercase);
-
-	for (int i = 0; i < 10; i++) {
-		std::cout << arr[i] << ' ';
-	}
 	std::cout << '\n';
-	for (int i = 0; i < 6; i++) {
-		std::cout << str[i];
-	}
-	std::cout << '\n';
-
 }
