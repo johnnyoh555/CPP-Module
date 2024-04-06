@@ -6,10 +6,15 @@ int main(int ac, char* av[]) {
 	VectorFJ v;
 	DequeFJ dq;
 
-	v.makeVector(ac, av);
-	v.execute();
-	dq.makeDeque(ac, av);
-	dq.execute();
+	try {
+		v.makeVector(ac, av);
+		v.execute();
+		dq.makeDeque(ac, av);
+		dq.execute();
+	} catch (int i) {
+		if (i == 1) std::cerr << "Error\n";
+		return 1;
+	}
 	std::cout << "Before:  ";
 	for (int i = 1; i < ac; i++) {
 		std::cout << av[i] << ' ';

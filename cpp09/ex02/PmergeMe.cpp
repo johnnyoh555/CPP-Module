@@ -13,7 +13,7 @@ void	VectorFJ::makeVector(int ac, char* av[]) {
 	for (int i = 1; i < ac; i++) {
 		long tmp;
 		tmp = std::strtol(av[i], 0, 10);
-		if (tmp <= 0 || tmp > 2147483647) throw ;
+		if (tmp <= 0 || tmp > 2147483647) throw 1;
 		v.push_back(tmp);
 	}
 }
@@ -79,7 +79,7 @@ void	DequeFJ::makeDeque(int ac, char* av[]) {
 	for (int i = 1; i < ac; i++) {
 		long tmp;
 		tmp = std::strtol(av[i], 0, 10);
-		if (tmp <= 0 || tmp > 2147483647) throw ;
+		if (tmp <= 0 || tmp > 2147483647) throw 1;
 		dq.push_back(tmp);
 	}
 }
