@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <algorithm>
 
 Span::Span() {}
 
@@ -45,7 +46,7 @@ unsigned int	Span::shortestSpan() {
 		throw CantFindSpan();
 	std::vector<int> tmp;
 	tmp = V;
-	sort(tmp.begin(), tmp.end());
+	std::sort(tmp.begin(), tmp.end());
 	unsigned int min = tmp[1] - tmp[0];
 	for (size_t i = 0; i < tmp.size() - 1; i++) {
 		if (static_cast<unsigned int>(tmp[i + 1] - tmp[i]) < min)
