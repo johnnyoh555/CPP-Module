@@ -23,14 +23,14 @@ int main()
 	}
 
 	try {
-		Span sp = Span(10000);
+		Span sp = Span(15000);
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
 		std::vector<int> V;
-		for (int i = 0; i < 5000; i++) {
+		for (int i = 0; i < 10000; i++) {
 			V.push_back(i * 30);
 		}
 
