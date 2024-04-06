@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 VectorFJ::VectorFJ() {}
 VectorFJ::~VectorFJ() {}
@@ -37,7 +38,7 @@ std::vector<std::pair<long, long> > VectorFJ::mergeInsertion(std::vector<std::pa
 	std::vector<std::pair<long, long> > tmp(sub);
 	main = mergeInsertion(main, dep + 1);
 	for (size_t i = 0; i < main.size(); i++)
-		sub[i] = tmp[main[i].second / pow(2, dep)];
+		sub[i] = tmp[main[i].second / std::pow(2, dep)];
 	tmp = main;
 	tmp.insert(tmp.begin(), sub[0]);
 	size_t t, t1 = 1, t2 = 3;
@@ -103,7 +104,7 @@ std::deque<std::pair<long, long> > DequeFJ::mergeInsertion(std::deque<std::pair<
 	std::deque<std::pair<long, long> > tmp(sub);
 	main = mergeInsertion(main, dep + 1);
 	for (size_t i = 0; i < main.size(); i++)
-		sub[i] = tmp[main[i].second / pow(2, dep)];
+		sub[i] = tmp[main[i].second / std::pow(2, dep)];
 	tmp = main;
 	tmp.insert(tmp.begin(), sub[0]);
 	size_t t, t1 = 1, t2 = 3;
