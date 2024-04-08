@@ -35,7 +35,7 @@ class Span {
 
 		template <typename iter>
 		void 	addNumber(iter begin, iter end) {
-			if (size + std::distance(begin, end) > max)
+			if (V.size() + std::distance(begin, end) > max)
         		throw SpanIsFull();
 			while (begin != end) {
 				addNumber(*begin);
