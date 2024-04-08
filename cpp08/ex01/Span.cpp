@@ -51,11 +51,7 @@ unsigned int	Span::longestSpan() {
 	std::vector<int> tmp;
 	tmp = V;
 	std::sort(tmp.begin(), tmp.end());
-	unsigned int max = tmp[1] - tmp[0];
-	for (size_t i = 0; i < tmp.size() - 1; i++) {
-		if (static_cast<unsigned int>(tmp[i + 1] - tmp[i]) > max)
-			max = static_cast<unsigned int>(tmp[i + 1] - tmp[i]);
-	}
+	unsigned int max = tmp[tmp.size() - 1] - tmp[0];
 	return max;
 }
 
