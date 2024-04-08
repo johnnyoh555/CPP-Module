@@ -8,7 +8,6 @@
 class Span {
 	private:
 		std::vector<int>	V;
-		unsigned int		size;
 		unsigned int		max;
 		Span();
 	

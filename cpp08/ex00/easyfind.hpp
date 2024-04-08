@@ -15,8 +15,16 @@ class CantFindExcption : public std::logic_error {
 };
 
 template<typename T>
-typename T::iterator	easyfind(T& con, int idx) {
-	typename T::iterator it = std::find(con.begin(), con.end(), idx);
+typename T::iterator	easyfind(T& con, int i) {
+	typename T::iterator it = std::find(con.begin(), con.end(), i);
+	if (it == con.end())
+		throw CantFindExcption();
+	return it;
+}
+
+template<typename T>
+typename T::const_iterator	easyfind(const T& con, int i) {
+	typename T::const_iterator it = std::find(con.begin(), con.end(), i);
 	if (it == con.end())
 		throw CantFindExcption();
 	return it;

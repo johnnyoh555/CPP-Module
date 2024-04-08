@@ -3,33 +3,23 @@
 
 Span::Span() {}
 
-Span::Span(const unsigned int N) {
-	V.resize(N);
-	max = N;
-	size = 0;
-}
+Span::Span(const unsigned int N) {max = N;}
 
 Span::~Span() {}
 
-Span::Span(const Span& rhs) {
-	V = rhs.V;
-	max = rhs.max;
-	size = rhs.size;
-}
+Span::Span(const Span& rhs) {V = rhs.V; max = rhs.max;}
 
 Span& Span::operator=(const Span& rhs) {
 	if (this != &rhs) {
 		V = rhs.V;
 		max = rhs.max;
-		size = rhs.size;
 	}
 	return *this;
 }
 
 void	Span::addNumber(int i) {
-	if (size == max)
+	if (V.size() == max)
 		throw SpanIsFull();
-	size++;
 	V.push_back(i);
 }
 
@@ -42,7 +32,7 @@ void	Span::addNumber(int i) {
 // }
 
 unsigned int	Span::shortestSpan() {
-	if (size < 2)
+	if (V.size() < 2)
 		throw CantFindSpan();
 	std::vector<int> tmp;
 	tmp = V;
@@ -56,11 +46,11 @@ unsigned int	Span::shortestSpan() {
 }
 
 unsigned int	Span::longestSpan() {
-	if (size < 2)
+	if (V.size() < 2)
 		throw CantFindSpan();
 	std::vector<int> tmp;
 	tmp = V;
-	sort(tmp.begin(), tmp.end());
+	std::sort(tmp.begin(), tmp.end());
 	unsigned int max = tmp[1] - tmp[0];
 	for (size_t i = 0; i < tmp.size() - 1; i++) {
 		if (static_cast<unsigned int>(tmp[i + 1] - tmp[i]) > max)
