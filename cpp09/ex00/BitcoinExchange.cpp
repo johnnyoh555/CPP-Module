@@ -89,9 +89,10 @@ void	BitcoinExchange::checkInfile(std::string infile) {
 	date = infile.substr(0, infile.find('|') - 1);
 	infile.erase(0, infile.find('|') + 2);
 	if (!checkDayInfo(date)) {std::cerr << "Error: not a right dayinfo.\n"; return;}
+	if (!infile.size()) {std::cerr << "Error: not a positive number.\n"; return;}
 	value = strtod(infile.c_str(), 0);
 	if (value < 0) {std::cerr << "Error: not a positive number.\n"; return;}
-	if (value > 2147483647) {std::cerr << "Error: too large a number.\n"; return;}
+	if (value > 1000) {std::cerr << "Error: too large a number.\n"; return;}
 	iter = data.upper_bound(date);
 	if (iter == data.begin()) {
 		std::cerr << "Error: dayinfo out of range\n"; return;

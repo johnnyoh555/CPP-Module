@@ -45,8 +45,10 @@ std::vector<std::pair<long, long> > VectorFJ::mergeInsertion(std::vector<std::pa
 	while (t1 < sub.size()) {
 		size_t m = std::min(t2, sub.size());
 		size_t u = t1 + m;
-		for (size_t i = m - 1; i >= t1; i--)
+		for (size_t i = m - 1; i >= t1; i--) {
 			tmp.insert(std::lower_bound(tmp.begin(), tmp.begin() + u - 1, sub[i]), sub[i]);
+			while (tmp[u - 1] != main[i - 1]) u--;
+		}
 		t = t2;
 		t2 = t2 + t1 * 2;
 		t1 = t;
@@ -111,8 +113,10 @@ std::deque<std::pair<long, long> > DequeFJ::mergeInsertion(std::deque<std::pair<
 	while (t1 < sub.size()) {
 		size_t m = std::min(t2, sub.size());
 		size_t u = t1 + m;
-		for (size_t i = m - 1; i >= t1; i--)
+		for (size_t i = m - 1; i >= t1; i--) {
 			tmp.insert(std::lower_bound(tmp.begin(), tmp.begin() + u - 1, sub[i]), sub[i]);
+			while (tmp[u - 1] != main[i - 1]) u--;
+		}
 		t = t2;
 		t2 = t2 + t1 * 2;
 		t1 = t;
